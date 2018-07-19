@@ -1,0 +1,54 @@
+<doctype html>
+  <html>
+  <head>
+    <title>
+      <%= title %>
+    </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="javascripts/jquery.js" type="text/javascript"></script>
+    <script src="javascripts/bootstrap.min.js" type="text/javascript"></script>
+  </head>
+
+  <body style="padding-top:100px;">
+    <div class="container-fluid">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/index">Blogger</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <!-- nav nav-pills -->
+            <li class="active">
+              <a href="/index">Home</a>
+            </li>
+            <li>
+              <a href="/createBlog">Write blog</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <% if(!loggedIn){ %>
+              <li>
+                <a href="/signUp">Sign up</a>
+              </li>
+              <li>
+                <a href="/login">
+                    <span class="glyphicon glyphicon-log-in"></span> Login
+                </a>
+              </li>
+              <% } else {%>
+                <li>
+                  <a href="/userProfile">
+                    <span class="glyphicon glyphicon-user"></span> Profile
+                  </a>
+                </li>
+                <li>
+                    <a href="/logout">
+                      <span class="glyphicon glyphicon-log-out"></span> Log out
+                    </a>
+                  </li>
+                <% }%>
+          </ul>
+
+        </div>
+      </nav>

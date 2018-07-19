@@ -1,0 +1,25 @@
+<% include ./partial/upperLayout %>
+<table>
+    <tr>
+        <td style="padding: 10px 10px 10px 10px">
+                <img src='/media?media_id=<%=userInfo.profile_img%>' height='100px'/>
+        </td>
+        <td style="padding: 10px 10px 10px 10px">
+                <table>
+                        <tr>
+                            <td style="padding: 10px 10px 10px 10px; font-weight: 600;">User name</td>
+                            <td style="padding: 10px 10px 10px 10px"><%=userInfo.user_nm%></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 10px 10px 10px; font-weight: 600;">Name</td>
+                            <td style="padding: 10px 10px 10px 10px"><%=userInfo.name%></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 10px 10px 10px; font-weight: 600;">Email id</td>
+                            <td style="padding: 10px 10px 10px 10px"><%=userInfo.email_id%></td>
+                        </tr>
+                    </table>
+        </td>
+    </tr>
+</table>
+<% include ./partial/lowerLayout %>

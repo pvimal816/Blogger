@@ -1,0 +1,26 @@
+<% include ./partial/upperLayout %>
+    <div class="jumbotron">
+        <%
+            if(blog){
+        %>
+            <h3><b><%=blog.title%></b></h3>
+            <img src='/media?media_id=<%= blog.start_img %>>'  height='320px' class='center'>
+            </br>
+            Created by <a href='/userProfile?user_name=<%= blog.created_by %>'> <%=blog.created_by%> </a></br>
+            Posted on <%=blog.posted_on%>
+            <p style="padding: 10px; font-family: cursive">
+                <%=blog.content%>
+            </p>
+
+            <span class="glyphicon glyphicon-thumbs-up"/> <%=blog.likes%>
+            <br>
+            <span class="glyphicon glyphicon-eye-open"/> <%=blog.read_counts%>
+        <%
+            }else{
+        %>
+            No blog found with that id.
+        <%
+            }
+        %>
+    </div>
+<% include ./partial/lowerLayout %>

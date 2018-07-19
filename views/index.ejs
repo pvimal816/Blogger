@@ -1,0 +1,38 @@
+<% include ./partial/upperLayout %>
+    <ul class="list-group">
+      <%for(var i=0;i<blogs.length;i++){%>
+          
+      <li class="list-group-item" style="margin:10px; background-color: white; box-shadow: 1px 1px 10px gray">
+        <table>
+          <tr>
+            <td rowspan="4">
+              <img src='/media?media_id=<%=blogs[i].start_img%>' class='img img-circle' height="90px" width="90px" style="margin: 10px; box-shadow: 1px 1px 10px gray"/>
+            </td>
+            <td>
+              <b><h4 class="text-success"><%=blogs[i].title%></h4></b>
+            </td>
+          </tr>
+          <tr>
+              <td>
+                <h5>Created By.<a href="/userProfile?user_name=<%=blogs[i].created_by%>"><%=blogs[i].created_by%></a></h5>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                <h5>Posted on. <%=blogs[i].posted_on%></h5>
+              </td>
+          </tr>
+          <tr>
+              <td>
+                  <h6><a href="/readBlog?blog_id=<%=blogs[i].blog_id%>">More</a></h6>
+              </td>
+          </tr>
+        </table>
+      </li>
+    
+      <%}%>
+    
+    </ul>
+    
+  
+<% include ./partial/lowerLayout %>

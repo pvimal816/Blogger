@@ -1,0 +1,23 @@
+<% include ./partial/upperLayout %>
+    <%
+        if(loggedIn){
+    %>
+        <div class="jumbotron"> 
+            <form action='/createBlog' method='POST' enctype='multipart/form-data'>
+                Title: <input type='text' name='title' style="margin-bottom: 10px" class="form-control"/></br>
+                Start image:<input type='file' name='image' style="margin-bottom: 10px"/>
+                <textarea name='content' rows='10' cols='150' class="form-control rounded-0 z-depth-1">Enter text here...</textarea>
+                <br/>
+                <input type='submit' value="Create blog" class="btn btn-primary"/>
+            </form>
+        </div>
+    <%
+        }else{
+    %>
+            <h3>You need to be logged in to create a blog.</h3>
+            <% include ./partial/login %>
+    <%            
+        }
+    %>
+    
+<% include ./partial/lowerLayout %>
