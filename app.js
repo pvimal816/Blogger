@@ -14,12 +14,13 @@ var userProfile = require('./routes/userProfile');
 var logout = require('./routes/logout');
 var mediaServer = require('./routes/mediaServer');
 var upload = require('multer')({dest: './uploads'});
+var config = require('./config');
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, config.views));
+app.set('view engine', config.viewEngine);
 
 ////setting up the necessary inbuilt routes
 
@@ -29,8 +30,8 @@ app.use(express.urlencoded({
   extended: false
 }));
 app.use(cookieParser());
-app.use(session({secret: 'Password@123', cookie:{maxAge: 3600000}}));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({secret: config.sessionKey, cookie:{maxAge: config.sessionTimeOut}}));
+app.use(express.static(path.join(__dirname, config.publicDir)));
 
 //setting up the routes
 app.use(function(req, res, next){
@@ -62,7 +63,7 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error', {
-    title: 'Express'
+    title: 'Blogger'
   });
 });
 
