@@ -22,7 +22,7 @@ router.get('/', function(req, res, next){
                     res.setHeader('content-type', 'image/jpeg');
                     res.end(result[0].media_content);
                 }else{
-                next(createError("Requested image not found."));
+                    next(createError("Requested image not found."));
                 }
             }
         });
